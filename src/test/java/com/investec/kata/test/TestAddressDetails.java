@@ -130,7 +130,7 @@ public class TestAddressDetails {
 	}
 	
 	@Test(expectedExceptions = InvalidAddressFormatException.class, expectedExceptionsMessageRegExp = "Please provide atleast one address line\nfor Address ID: 2")
-	public void invalidateAddressesThrowsEcxeption() throws Exception{
+	public void invalidAddressesThrowsEcxeptionForOneAddressAtATime() throws Exception{
 		JsonNode jsonNode = mapper.readValue(new File(addressesFilePath), JsonNode.class);
 		List<AddressModel> addresses = mapper.convertValue(jsonNode, new TypeReference<List<AddressModel>>(){});
 		assertEquals(addressFormatting.prettyPrintAllAddresses(addresses),prettyPrintAddress);
