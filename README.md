@@ -1,77 +1,29 @@
 # AddressFormattingForGivenJSONFile
   Given the addresses.json file which contains an array of address, perform validations and formatting
   
-  Given the attached addresses.json file which contains an array of address, do the following:
-
-a. Write a function to return a pretty print version of an address in the format: 
-
-Type: Line details - city - province/state - postal code – country
-
-Physical Address: Address 1, Line 2 - City 1 - Eastern Cape - 1234 - South Africa
-
- // example Java function definition
-
-  public String prettyPrintAddress(Address address) {
-
-    // your code here
-
-  }
-
- Steps:
- 1.Create POJOs for given address json
+ 1.Create required data models so that we can map the given addresses.json to it.
  
- 2.Check if json file exist at classpath
+ 2.If the json file is not found at the given location throw FileNotFoundException.
  
- 3.Map json to POJO
+ 3.If the file is found at the given location map the list of addresses in the json to the list of appropriate Data Model.
  
- 3.pretty print version of an address in the format
+ 4.If addresses.json contain invalid json throw JsonParseException.
  
- 4.check none of the fields in pretty printed address are null/empty/0 else skip them.
+ 5.pretty print version of an address in the format given :
+  (Type: Line details - city - province/state - postal code – country)
  
-b. Write a function to pretty print all the addresses in the attached file
+ 6.null empty or postal code=0 values must not be present in the address format.
+ 
+ 7.pretty print all addresses in the given format.
 
-Steps:
+ 8.search address by type and print its details
 
-1.Map json to POJO
+ 9.check if address contains numeric postal code, if not display appropriate error message.
 
-2.pretty print all addresses in given format
+ 10.check if address contains country, if not display appropriate error message.
 
-c. Write a function to print an address of a certain type (postal, physical, business)
+ 11.check if address contains at least one address line, if not display appropriate error message.
 
-Steps:
+ 12.Check if country code is ZA province field is present, if not display appropriate error message.
 
-1.Map json to POJO
-
-2.Find address by type
-
-3.Pretty print address of that type in given format
-
-
-d. Write a function to validate an address
-
-      i.A valid address must consist of a numeric postal code, a country, and at least one address line that is not blank or null.
-
-      ii.If the country is ZA, then a province is required as well.
-
-Steps:
-
-1.Map json to POJO
-
-2.check if address contains numeric postal code, if not display error message.
-
-3.check if address contains country, if not display error message.
-
-4.check if address contains atleast one address line, if not display error message.
-
-5.Check if country code is ZA province fipublicvaeld is present, if not display error message.
-
-
-e. For each address in the attached file, determine if it is valid or not, and if not give an indication of what is invalid in a message format of your choice.
-
-Steps:
-
-1.Map json to POJO
-
-2.For every address apply above validation
-
-3.If not valid display appropriate error message.
+ 13.Validate all the addresses in given json such that if invalid appropriate error message is displayed for given id.
